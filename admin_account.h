@@ -1,8 +1,6 @@
 #ifndef ADMIN_ACCOUNT_H
 #define ADMIN_ACCOUNT_H
 
-#include <string>
-#include <vector>
 
 struct User_Name {
     int id;
@@ -43,6 +41,7 @@ private:
     int print_server_log(); //печатать лог сервера
 
     //Возможности админа
+    int logout(); //вернуться в первоначальное меню
     int set_user_ban(bool); //устаносить бан на текущего юзера
     int set_purse_ban(int, bool); //устаносить бан на кощелёк текущего юзера по ID кошелька
     int set_user_ban(int, bool); //устаносить бан на юзера по ID
@@ -51,7 +50,7 @@ private:
     int delete_user(int); //удалить юзера по ID
 
     //Служебные фукции
-    int parse(string); //парсит входную строку
+    int parse_command(string); //парсит входные команды юзера
     //................
 };
 
