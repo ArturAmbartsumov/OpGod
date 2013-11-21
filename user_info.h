@@ -1,12 +1,14 @@
 #ifndef USER_INFO_H
 #define USER_INFO_H
 
+#include <string>
+
 struct User_Info {
     int id;
-    string first_name;
-    string sur_name;
-    string email;
-    string registration_date;
+    std::string first_name;
+    std::string sur_name;
+    std::string email;
+    std::string registration_date;
     bool ban;
     User_Info(): id(0), ban(1) {}
 };

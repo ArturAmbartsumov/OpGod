@@ -11,23 +11,23 @@ using namespace boost::asio;
 
 class Client {
 public:
-	Client(io_service&, std::string _ip_addr, unsigned short _port);
+    Client(io_service&, std::string _ip_addr, unsigned short _port);
 
-	void connect_();
-	void close_();
+    void connect_();
+    void close_();
 
-	size_t read_(char[], size_t);
-	size_t read_line_(char[]);
-	size_t read_until_(char*, const char _until);
+    size_t read_(char[], size_t);
+    size_t read_line_(char[]);
+    size_t read_until_(char*, const char _until);
 
-	void write_(const std::string&);
+    void write_(const std::string&);
 private:
-	size_t read_complete_(char _buf[], const char _until, size_t _bytes);
+    size_t read_complete_(char _buf[], const char _until, size_t _bytes);
 
-	ip::tcp::socket socket_;
-	std::string ip_addr_;
-	unsigned short port_;
-	ip::tcp::endpoint endpoint_;
+    ip::tcp::socket socket_;
+    std::string ip_addr_;
+    unsigned short port_;
+    ip::tcp::endpoint endpoint_;
 };
 
 

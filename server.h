@@ -1,4 +1,3 @@
-
 #ifndef SERVER_HPP_
 #define SERVER_HPP_
 
@@ -13,30 +12,30 @@ using namespace boost::asio;
 
 struct Acceptor;
 struct Socket {
-	friend struct Acceptor;
+    friend struct Acceptor;
 
-	Socket(io_service&);
+    Socket(io_service&);
 
-	size_t read_(char[], size_t);
-	size_t read_line_(char[]);
-	size_t read_until_(char[], const char _until);
+    size_t read_(char[], size_t);
+    size_t read_line_(char[]);
+    size_t read_until_(char[], const char _until);
 
-	void write_(const std::string&);
+    void write_(const std::string&);
 
-	void close_();
+    void close_();
 private:
-	size_t read_complete_(char[], const char _until, size_t bytes);
-	ip::tcp::socket socket_;
+    size_t read_complete_(char[], const char _until, size_t bytes);
+    ip::tcp::socket socket_;
 };
 
 struct Acceptor {
-	explicit Acceptor(io_service&, unsigned short _port);
+    explicit Acceptor(io_service&, unsigned short _port);
 
-	void accept_(Socket& socket);
+    void accept_(Socket& socket);
 private:
-	unsigned short port_;
-	ip::tcp::endpoint endpoint_;
-	ip::tcp::acceptor acceptor_;
+    unsigned short port_;
+    ip::tcp::endpoint endpoint_;
+    ip::tcp::acceptor acceptor_;
 };
 
 

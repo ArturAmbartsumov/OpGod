@@ -1,12 +1,11 @@
 #ifndef ADMIN_ACCOUNT_H
 #define ADMIN_ACCOUNT_H
 
-
-struct User_Name {
-    int id;
-    string name;
-    user_name(): id(0) {}
-};
+#include <string>
+#include <vector>
+#include "purse_info.h"
+#include "user_info.h"
+#include "client.h"
 
 class Admin_Account
 {
@@ -20,13 +19,13 @@ public:
 private:
     //Атрибуты
     Client& clnt;
-    vector<User_Info> user_list; //список юзеров
+    std::vector<User_Info> user_list; //список юзеров
     User_Info current_user; //текущий юзер
-    vector<purse_info> purse_list; //список кошельков юзера
-    vector<string> server_log; //логи сервера
+    std::vector<Purse_Info> purse_list; //список кошельков юзера
+    std::vector<std::string> server_log; //логи сервера
 
     //Гет функции
-    int get_current_user_info(string); //найти юзера по имени и установить его текущим
+    int get_current_user_info(std::string); //найти юзера по имени и установить его текущим
     int get_current_user_info(int); //найти юзера по Id и установить его текущим
     int get_purse_list(int); //получить список кошельков юзера
     int get_all_user_list(); //получить список всех юзеров
@@ -50,7 +49,7 @@ private:
     int delete_user(int); //удалить юзера по ID
 
     //Служебные фукции
-    int parse_command(string); //парсит входные команды юзера
+    int parse_command(std::string); //парсит входные команды юзера
     //................
 };
 

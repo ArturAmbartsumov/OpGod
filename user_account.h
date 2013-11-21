@@ -1,6 +1,12 @@
 #ifndef USER_ACCOUNT_H
 #define USER_ACCOUNT_H
 
+#include <string>
+#include <vector>
+#include "purse_info.h"
+#include "user_info.h"
+#include "client.h"
+
 class User_Account
 {
 public:
@@ -14,7 +20,7 @@ private:
     //Атрибуты
     Client& clnt;
     User_Info user; //текущий юзер
-    vector<purse_info> purse_list; //список кошельков юзера
+    std::vector<Purse_Info> purse_list; //список кошельков юзера
 
     //Гет функции
     int get_user(); //читает из сокета юзер инфо и записывает в атрубут user
@@ -33,7 +39,7 @@ private:
     int send_maney(int); //сделать перевод на указанный кошелёк
 
     //Сервисные функции
-    int parse(string); //парсит входящую строку
+    int parse(std::string); //парсит входящую строку
     //...................
 };
 
